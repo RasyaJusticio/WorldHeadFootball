@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
+}
+
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  &.hidden {
+    display: none !important;
+  }
+
+  &.center {
+    display: grid;
+    place-items: center;
+  }
+}
+
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+
+  img {
+    width: 100vw;
+    object-fit: cover;
+    filter: blur(8px);
+  }
+}

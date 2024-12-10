@@ -1,0 +1,108 @@
+.modal-overlay {
+  display: grid;
+  place-items: center;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+
+  &.hidden {
+    pointer-events: none;
+    opacity: 0;
+  }
+}
+
+.modal-overlay.hidden {
+  .modal {
+    transform: translateY(-20%);
+  }
+}
+
+.modal {
+  position: relative;
+  padding: 1rem;
+  background-color: rgb(84, 84, 181);
+  color: white;
+  border: 2px solid rgb(57, 57, 128);
+  min-width: 30rem;
+  transition: transform 200ms ease-in-out;
+}
+
+.modal-title {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.modal-close-button:not(.unstyled) {
+  cursor: pointer;
+  border: 1px solid white;
+  background-color: rgb(57, 57, 128);
+  color: white;
+  width: 38px;
+  font-size: 18px;
+  aspect-ratio: 1 / 1;
+
+  &.top-right {
+    position: absolute;
+    top: 0.8rem;
+    right: 0.8rem;
+  }
+
+  &:hover {
+    background-color: rgb(84, 84, 181);
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.modal-open-button:not(.unstyled) {
+  cursor: pointer;
+  border: 2px solid white;
+  background-color: rgb(84, 84, 181);
+  box-shadow: 0 4px 8px 6px rgba(0, 0, 0, 0.2);
+  padding: 8px 12px;
+  color: white;
+  font-size: 16px;
+
+  &.top-right {
+    position: absolute;
+    top: 0.8rem;
+    right: 0.8rem;
+  }
+
+  &:hover {
+    background-color: rgb(57, 57, 128);
+  }
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.modal {
+  .actions {
+    background-color: rgb(57, 57, 128);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px;
+
+    button {
+      cursor: pointer;
+      border: 2px solid white;
+      background-color: rgb(84, 84, 181);
+      box-shadow: 0 4px 8px 6px rgba(0, 0, 0, 0.2);
+      padding: 8px 12px;
+      color: white;
+      font-size: 16px;
+
+      &:hover {
+        background-color: rgb(57, 57, 128);
+      }
+    }
+  }
+}

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="./styles/modal.css" />
+    <link rel="stylesheet" href="./styles/lobby.css" />
+    <link rel="stylesheet" href="./styles/game.css" />
+    <title>WorldHeadFootball</title>
+  </head>
+
+  <body>
+    <div id="background">
+      <img src="./assets/background2.jpg" alt="" />
+    </div>
+
+    <div class="page center" id="lobby">
+      <div class="panel">
+        <h1>WorldHeadFootball</h1>
+        <h3>Game berbasis web</h3>
+
+        <form id="gameForm">
+          <label>
+            Username
+            <input
+              type="text"
+              name="name"
+              placeholder="Your username..."
+              required
+              autocomplete="off"
+            />
+          </label>
+
+          <div class="row">
+            <label>Negara</label>
+            <div class="row-content">
+              <div class="col">
+                <label>Player 1</label>
+
+                <div class="select grid">
+                  <label class="option">
+                    <img src="./assets/Flag/Brazil.png" alt="" />
+                    <input
+                      type="radio"
+                      name="player1Country"
+                      value="Brazil"
+                      required
+                      checked
+                    />
+                  </label>
+                  <label class="option">
+                    <img src="./assets/Flag/England.png" alt="" />
+                    <input
+                      type="radio"
+                      name="player1Country"
+                      value="England"
+                      required
+                    />
+                  </label>
+                  <label class="option">
+                    <img src="./assets/Flag/Germany.png" alt="" />
+                    <input
+                      type="radio"
+                      name="player1Country"
+                      value="Germany"
+                      required
+                    />
+                  </label>
+                  <label class="option">
+                    <img src="./assets/Flag/Italy.png" alt="" />
+                    <input
+                      type="radio"
+                      name="player1Country"
+                      value="Italy"
+                      required
+                    />
+                  </label>
+                  <label class="option">
+                    <img src="./assets/Flag/Japan.png" alt="" />
+                    <input
+                      type="radio"
+                      name="player1Country"
+                      value="Japan"
+                      required
+                    />
+                  </label>
+                  <label class="option">
+                    <img src="./assets/Flag/Netherlands.png" alt="" />
+                    <input
+                      type="radio"
+                      name="player1Country"
+                      value="Netherlands"
+                      required
+                    />
+                  </label>
+                  <label class="option">
+                    <img src="./assets/Flag/Portugal.png" alt="" />
+                    <input
+                      type="radio"
+                      name="player1Country"
+                      value="Portugal"
+                      required
+                    />
+                  </label>
+                  <label class="option">
+                    <img src="./assets/Flag/Spain.png" alt="" />
+                    <input
+                      type="radio"
+                      name="player1Country"
+                      value="Spain"
+                      required
+                    />
+                  </label>
+                </div>
+              </div>
+              <div class="col">
+                <label>Player 2</label>
+
+                <div class="select grid">
+                  <label class="option">
+                    <img src="./assets/Flag/Brazil.png" alt="" />
+                    <input
+                      type="radio"
+                      name="player2Country"
+                      value="Brazil"
+                      required
+                    />
+                  </label>
+                  <label class="option">
+                    <img src="./assets/Flag/England.png" alt="" />
+                    <input
+                      type="radio"
+                      name="player2Country"
+                      value="England"
+                      required
+                    />
+                  </label>
+                  <label class="option">
+                    <img src="./assets/Flag/Germany.png" alt="" />
+                    <input
+                      type="radio"
+                      name="player2Country"
+                      value="Germany"
+                      required
+                    />
+                  </label>
+                  <label class="option">
+                    <img src="./assets/Flag/Italy.png" alt="" />
+                    <input
+                      type="radio"
+                      name="player2Country"
+                      value="Italy"
+                      required
+                    />
+                  </label>
+                  <label class="option">
+                    <img src="./assets/Flag/Japan.png" alt="" />
+                    <input
+                      type="radio"
+                      name="player2Country"
+                      value="Japan"
+                      required
+                    />
+                  </label>
+                  <label class="option">
+                    <img src="./assets/Flag/Netherlands.png" alt="" />
+                    <input
+                      type="radio"
+                      name="player2Country"
+                      value="Netherlands"
+                      required
+                      checked
+                    />
+                  </label>
+                  <label class="option">
+                    <img src="./assets/Flag/Portugal.png" alt="" />
+                    <input
+                      type="radio"
+                      name="player2Country"
+                      value="Portugal"
+                      required
+                    />
+                  </label>
+                  <label class="option">
+                    <img src="./assets/Flag/Spain.png" alt="" />
+                    <input
+                      type="radio"
+                      name="player2Country"
+                      value="Spain"
+                      required
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="row-content">
+              <div class="col">
+                <label>Level</label>
+
+                <div class="select select-col">
+                  <label class="option">
+                    Easy
+                    <input
+                      type="radio"
+                      name="difficulty"
+                      value="30"
+                      required
+                      checked
+                    />
+                  </label>
+                  <label class="option">
+                    Medium
+                    <input type="radio" name="difficulty" value="20" required />
+                  </label>
+                  <label class="option">
+                    Hard
+                    <input type="radio" name="difficulty" value="15" required />
+                  </label>
+                </div>
+              </div>
+              <div class="col">
+                <label>Jenis Bola</label>
+
+                <div
+                  class="select select-row"
+                  style="justify-content: space-around"
+                >
+                  <label class="option option-img">
+                    <img
+                      src="./assets/Ball 01.png"
+                      style="border-radius: 100%"
+                      alt=""
+                    />
+                    <input
+                      type="radio"
+                      name="ball"
+                      value="01"
+                      required
+                      checked
+                    />
+                  </label>
+                  <label class="option option-img">
+                    <img
+                      src="./assets/Ball 02.png"
+                      style="border-radius: 100%"
+                      alt=""
+                    />
+                    <input type="radio" name="ball" value="01" required />
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button type="submit" id="playGame">Play Game</button>
+            <button
+              type="button"
+              id="openInstruction"
+              class="modal-open-button"
+              data-modalId="instruction"
+            >
+              Instruksi
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-overlay hidden" id="instruction">
+        <div class="modal">
+          <h2 class="modal-title">Instruksi</h2>
+          <ol>
+            <li>Masukkan nama pengguna (username) Anda untuk memulai.</li>
+            <li>Pilih tingkat kesulitan: Mudah, Sedang, atau Sulit.</li>
+            <li>
+              Pilih bola yang ingin digunakan dan negara untuk Pemain 1 dan
+              Pemain 2.
+            </li>
+            <li>
+              Kontrol Pemain 1:
+              <ol>
+                <li>A untuk bergerak ke kiri.</li>
+                <li>D untuk bergerak ke kanan.</li>
+                <li>W untuk melompat.</li>
+                <li>Spasi untuk menendang bola.</li>
+              </ol>
+            </li>
+
+            <li>
+              Kontrol Pemain 1:
+              <ol>
+                <li>Panah Kiri untuk bergerak ke kiri.</li>
+                <li>Panah Kanan untuk bergerak ke kanan.</li>
+                <li>Panah Atas untuk melompat.</li>
+                <li>Enter untuk menendang bola.</li>
+              </ol>
+            </li>
+            <li>Cetak gol dengan menendang bola ke gawang lawan.</li>
+            <li>
+              Ambil power-up yang jatuh setiap 5 detik untuk mendapatkan
+              keuntungan.
+            </li>
+            <li>
+              Timer permainan tergantung pada tingkat kesulitan:
+              <ol>
+                <li>Mudah: 30 detik.</li>
+                <li>Sedang: 20 detik.</li>
+                <li>Sulit: 15 detik.</li>
+              </ol>
+            </li>
+
+            <li>
+              Permainan berakhir saat waktu habis atau setelah gol penentu jika
+              skor seri.
+            </li>
+
+            <li>
+              Lihat statistik pertandingan, simpan skor Anda, dan periksa
+              riwayat pertandingan setelah selesai.
+            </li>
+          </ol>
+          <button
+            type="button"
+            class="modal-close-button top-right"
+            data-modalId="instruction"
+          >
+            ✕
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="page center hidden" id="game">
+      <div id="container">
+        <div id="ui">
+          <button
+            class="pause-game modal-open-button unstyled"
+            id="openPauseMenu"
+            data-modalId="pauseMenu"
+          >
+            <svg
+              width="28px"
+              height="28px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 18L20 18"
+                stroke="#FFFFFF"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M4 12L20 12"
+                stroke="#FFFFFF"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M4 6L20 6"
+                stroke="#FFFFFF"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
+
+          <div id="scoreboard">
+            <div class="scores">
+              <div class="country">
+                <img
+                  class="display_player1CountryImg"
+                  src="./assets/Flag/Brazil.png"
+                  alt=""
+                />
+                <div class="score">
+                  <h2 class="display_player1Country">country_name</h2>
+                  <h2 class="display_player1Score">0</h2>
+                </div>
+              </div>
+              <h2 class="versus">VS</h2>
+              <div class="country">
+                <div class="score">
+                  <h2 class="display_player2Country">country_name</h2>
+                  <h2 class="display_player2Score">0</h2>
+                </div>
+                <img
+                  class="display_player2CountryImg"
+                  src="./assets/Flag/Brazil.png"
+                  alt=""
+                />
+              </div>
+            </div>
+
+            <div class="timer">
+              <h2>TIMER</h2>
+              <span class="display_timer">30</span>
+            </div>
+          </div>
+        </div>
+        <canvas id="canvas"></canvas>
+      </div>
+
+      <div class="modal-overlay hidden" id="pauseMenu">
+        <div class="modal">
+          <h2 class="modal-title">Paused</h2>
+
+          <div class="actions">
+            <button
+              class="resume-game modal-close-button unstyled"
+              data-modalId="pauseMenu"
+            >
+              Resume
+            </button>
+            <button
+              class="restart-btn modal-close-button unstyled"
+              data-modalId="pauseMenu"
+            >
+              Restart
+            </button>
+            <button
+              class="exit-btn modal-close-button unstyled"
+              data-modalId="pauseMenu"
+            >
+              Exit
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="modal-open-button hidden"
+        id="openCountdown"
+        data-modalId="countdown"
+      ></button>
+      <button
+        class="modal-close-button hidden"
+        id="closeCountdown"
+        data-modalId="countdown"
+      ></button>
+      <div class="modal-overlay hidden" id="countdown">
+        <span id="countdownLabel">3</span>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="./modules/page-handler.js"></script>
+    <script src="./modules/modal-handler.js"></script>
+
+    <script src="./modules/game/vector.js"></script>
+    <script src="./modules/game/constants.js"></script>
+    <script src="./modules/game-form-handler.js"></script>
+    <script src="./modules/game/states.js"></script>
+    <script src="./modules/game/collision.js"></script>
+    <script src="./modules/game/player.js"></script>
+    <script src="./modules/game/ball.js"></script>
+    <script src="./modules/game/goal.js"></script>
+    <script src="./modules/game/item.js"></script>
+    <script src="./modules/game/game-ui-handler.js"></script>
+    <script src="./modules/game/main.js"></script>
+  </body>
+</html>

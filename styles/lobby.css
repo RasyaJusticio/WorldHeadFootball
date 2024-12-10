@@ -1,0 +1,156 @@
+#lobby {
+  .panel {
+    padding: 1rem;
+    background-color: rgb(84, 84, 181);
+    color: white;
+    border: 2px solid rgb(57, 57, 128);
+  }
+
+  h1,
+  h3 {
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 1rem;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 18px;
+
+      input[type="text"] {
+        background-color: rgb(57, 57, 128);
+        padding: 8px 12px;
+        border: 2px solid white;
+        color: white;
+        font-size: 16px;
+
+        &:focus {
+          outline: 0;
+          box-shadow: 0 0 12px 1px rgb(160, 160, 242);
+        }
+      }
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      background-color: rgb(57, 57, 128);
+      border: 2px solid white;
+      padding: 4px;
+      gap: 6px;
+    }
+
+    .row-content {
+      width: 100%;
+      display: flex;
+      gap: 8px;
+
+      .col {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        background-color: rgb(84, 84, 181);
+        color: white;
+        border: 2px solid white;
+        width: 100%;
+        padding: 8px;
+      }
+    }
+
+    .select.grid {
+      display: grid;
+      grid-template-columns: repeat(4, 60px);
+      grid-template-rows: repeat(2, 42.11px);
+      gap: 6px;
+
+      .option {
+        img {
+          width: 100%;
+          object-fit: cover;
+        }
+
+        &:has(input:checked) {
+          img {
+            outline: 3px solid rgb(0, 255, 0);
+          }
+        }
+
+        input {
+          visibility: hidden;
+        }
+      }
+    }
+
+    .select.select-col {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 1.5px;
+
+      .option {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+    }
+
+    .select.select-row {
+      display: flex;
+      flex-direction: row;
+      gap: 1.5px;
+
+      .option {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .option-img {
+        img {
+          width: 82px;
+          aspect-ratio: 1 / 1;
+        }
+
+        &:has(input:checked) {
+          img {
+            outline: 4px solid rgb(0, 255, 0);
+          }
+        }
+
+        input {
+          visibility: hidden;
+        }
+      }
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    #playGame {
+      cursor: pointer;
+      border: 2px solid white;
+      background-color: rgb(84, 84, 181);
+      box-shadow: 0 4px 8px 6px rgba(0, 0, 0, 0.2);
+      padding: 8px 12px;
+      color: white;
+      font-size: 16px;
+      width: 100%;
+
+      &:hover {
+        background-color: rgb(57, 57, 128);
+      }
+    }
+
+    #openInstruction {
+      width: 30%;
+    }
+  }
+}
