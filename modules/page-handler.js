@@ -27,4 +27,4 @@ function onPageChange(callback) {
   registeredCallbacks.push(callback);
 }
 
-navigate("game");
+navigate("lobby");

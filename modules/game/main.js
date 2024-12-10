@@ -370,6 +370,9 @@ function init() {
   player2 = new Player(submittedData.player2Country, 2);
 
   rerenderPlayerCountries();
+  rerenderPlayerScores();
+  rerenderTimer();
+
   doCountdown();
   loop();
 }

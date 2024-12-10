@@ -17,9 +17,9 @@ gameForm.addEventListener("submit", (ev) => {
 
   timer = Number(submittedData.difficulty);
 
+  BALL_IMG.src = `./assets/Ball ${submittedData.ball}.png`;
+  COUNTRY_1_IMG.src = `./assets/Flag/${submittedData.player1Country}.png`;
+  COUNTRY_2_IMG.src = `./assets/Flag/${submittedData.player2Country}.png`;
+
   navigate("game");
 });
-
-BALL_IMG.src = `./assets/Ball ${submittedData.ball}.png`;
-COUNTRY_1_IMG.src = `./assets/Flag/${submittedData.player1Country}.png`;
-COUNTRY_2_IMG.src = `./assets/Flag/${submittedData.player2Country}.png`;
