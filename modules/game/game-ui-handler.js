@@ -117,3 +117,10 @@ function rerenderTimer() {
     timerElem.textContent = timer;
   });
 }
+
+// Game Over
+const openGameOverBtn = document.getElementById("openGameOver");
+
+function openGameOver() {
+  openGameOverBtn.click();
+}

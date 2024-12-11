@@ -91,6 +91,10 @@
     gap: 6px;
     padding: 12px;
 
+    &.row {
+      flex-direction: row;
+    }
+
     button {
       cursor: pointer;
       border: 2px solid white;
@@ -99,6 +103,7 @@
       padding: 8px 12px;
       color: white;
       font-size: 16px;
+      flex: 1;
 
       &:hover {
         background-color: rgb(57, 57, 128);

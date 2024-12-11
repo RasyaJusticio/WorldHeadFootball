@@ -435,6 +435,57 @@
 
       <button
         class="modal-open-button hidden"
+        id="openGameOver"
+        data-modalId="gameOver"
+      ></button>
+      <div class="modal-overlay hidden" id="gameOver">
+        <div class="modal">
+          <h2 class="modal-title">Game Over</h2>
+          <div id="gameResult">
+            <div class="country">
+              <img
+                class="display_player1CountryImg"
+                src="./assets/Flag/Brazil.png"
+                alt=""
+              />
+              <div class="score">
+                <h2 class="display_player1Country">country_name</h2>
+                <h2 class="display_player1Score">0</h2>
+              </div>
+            </div>
+            <h2 class="versus">VS</h2>
+            <div class="country">
+              <div class="score">
+                <h2 class="display_player2Country">country_name</h2>
+                <h2 class="display_player2Score">0</h2>
+              </div>
+              <img
+                class="display_player2CountryImg"
+                src="./assets/Flag/Brazil.png"
+                alt=""
+              />
+            </div>
+          </div>
+
+          <div class="actions row">
+            <button
+              class="restart-btn modal-close-button unstyled"
+              data-modalId="gameOver"
+            >
+              Restart
+            </button>
+            <button
+              class="exit-btn modal-close-button unstyled"
+              data-modalId="gameOver"
+            >
+              Exit
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="modal-open-button hidden"
         id="openCountdown"
         data-modalId="countdown"
       ></button>

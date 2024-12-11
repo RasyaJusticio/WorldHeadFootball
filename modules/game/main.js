@@ -21,12 +21,14 @@ let player2;
 function cleanupGame() {
   isPaused = false;
   isCountingDown = false;
+  isGoalScored = false;
+  isGameOver = false;
 
   items = [];
 
-  player1 = new Player(submittedData.player1Country, 1);
-  player2 = new Player(submittedData.player2Country, 2);
-  ball = new Ball();
+  player1.reset();
+  player2.reset();
+  ball.reset();
 
   timer = Number(submittedData.difficulty);
   score = [0, 0];
@@ -59,6 +61,13 @@ function doGoalie(player) {
 
     isGoalScored = false;
   }, 1000);
+}
+
+function doGameOver() {
+  isGameOver = true;
+  rerenderPlayerScores();
+  rerenderPlayerCountries();
+  openGameOver();
 }
 
 function getRandomInt(min, max) {
@@ -189,7 +198,7 @@ function handleItemSpawner(deltaTime) {
   if (lastItemSpawned >= ITEM_SPAWN_INTERVAL) {
     lastItemSpawned = 0;
 
-    const itemType = ["big_ball", "big_ball", "big_ball"][lastItem];
+    const itemType = ["big_ball", "small_ball", "freeze_ball"][lastItem];
     lastItem += 1;
     if (lastItem > 2) {
       lastItem = 0;
@@ -200,7 +209,7 @@ function handleItemSpawner(deltaTime) {
 
 function handleItemEffectTimer(deltaTime) {
   if (effectTimer > 0) {
-    // effectTimer -= deltaTime;
+    effectTimer -= deltaTime;
   }
 
   if (effectTimer <= 0) {
@@ -219,8 +228,14 @@ function updateTimer(deltaTime) {
   if (lastSecond >= 1) {
     lastSecond = 0;
 
-    timer--;
-    rerenderTimer();
+    if (timer > 0) {
+      timer--;
+      rerenderTimer();
+    }
+  }
+
+  if (timer <= 0 && score[0] !== score[1]) {
+    doGameOver();
   }
 }
 
@@ -370,7 +385,7 @@ function loop(timestamp) {
   lastTimestamp = timestamp;
 
   draw();
-  if (!isPaused && !isCountingDown && !isGoalScored) {
+  if (!isPaused && !isCountingDown && !isGoalScored && !isGameOver) {
     update(deltaTime);
   }
 
