@@ -124,3 +124,14 @@ const openGameOverBtn = document.getElementById("openGameOver");
 function openGameOver() {
   openGameOverBtn.click();
 }
+
+// Fullscreen
+const goFullScreenBtn = document.getElementById("goFullScreen");
+
+goFullScreenBtn.addEventListener("click", () => {
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+  } else {
+    document.getElementById("game").requestFullscreen();
+  }
+});

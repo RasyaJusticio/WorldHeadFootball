@@ -1,4 +1,8 @@
 #game {
+  .wrapper {
+    position: relative;
+  }
+
   #container {
     position: relative;
     background-color: rgb(84, 84, 181);

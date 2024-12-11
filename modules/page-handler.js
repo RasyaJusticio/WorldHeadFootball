@@ -27,4 +27,10 @@ function onPageChange(callback) {
   registeredCallbacks.push(callback);
 }
 
+onPageChange((page) => {
+  if (page === "lobby") {
+    document.exitFullscreen();
+  }
+});
+
 navigate("lobby");

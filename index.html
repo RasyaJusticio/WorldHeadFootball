@@ -335,43 +335,115 @@
     </div>
 
     <div class="page center hidden" id="game">
-      <div id="container">
-        <div id="ui">
-          <button
-            class="pause-game modal-open-button unstyled"
-            id="openPauseMenu"
-            data-modalId="pauseMenu"
-          >
-            <svg
-              width="28px"
-              height="28px"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+      <div class="wrapper">
+        <div id="container">
+          <div id="ui">
+            <button
+              class="pause-game modal-open-button unstyled"
+              id="openPauseMenu"
+              data-modalId="pauseMenu"
             >
-              <path
-                d="M4 18L20 18"
-                stroke="#FFFFFF"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-              <path
-                d="M4 12L20 12"
-                stroke="#FFFFFF"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-              <path
-                d="M4 6L20 6"
-                stroke="#FFFFFF"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-            </svg>
-          </button>
+              <svg
+                width="28px"
+                height="28px"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 18L20 18"
+                  stroke="#FFFFFF"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M4 12L20 12"
+                  stroke="#FFFFFF"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M4 6L20 6"
+                  stroke="#FFFFFF"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
 
-          <div id="scoreboard">
-            <div class="scores">
+            <div id="scoreboard">
+              <div class="scores">
+                <div class="country">
+                  <img
+                    class="display_player1CountryImg"
+                    src="./assets/Flag/Brazil.png"
+                    alt=""
+                  />
+                  <div class="score">
+                    <h2 class="display_player1Country">country_name</h2>
+                    <h2 class="display_player1Score">0</h2>
+                  </div>
+                </div>
+                <h2 class="versus">VS</h2>
+                <div class="country">
+                  <div class="score">
+                    <h2 class="display_player2Country">country_name</h2>
+                    <h2 class="display_player2Score">0</h2>
+                  </div>
+                  <img
+                    class="display_player2CountryImg"
+                    src="./assets/Flag/Brazil.png"
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <div class="timer">
+                <h2>TIMER</h2>
+                <span class="display_timer">30</span>
+              </div>
+            </div>
+          </div>
+          <canvas id="canvas"></canvas>
+        </div>
+
+        <div class="modal-overlay hidden" id="pauseMenu">
+          <div class="modal">
+            <h2 class="modal-title">Paused</h2>
+
+            <div class="actions">
+              <button
+                class="resume-game modal-close-button unstyled"
+                data-modalId="pauseMenu"
+              >
+                Resume
+              </button>
+              <button id="goFullScreen">Fullscreen</button>
+              <button
+                class="restart-btn modal-close-button unstyled"
+                data-modalId="pauseMenu"
+              >
+                Restart
+              </button>
+              <button
+                class="exit-btn modal-close-button unstyled"
+                data-modalId="pauseMenu"
+              >
+                Exit
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="modal-open-button hidden"
+          id="openGameOver"
+          data-modalId="gameOver"
+        ></button>
+        <div class="modal-overlay hidden" id="gameOver">
+          <div class="modal">
+            <h2 class="modal-title">Game Over</h2>
+            <div id="gameResult">
               <div class="country">
                 <img
                   class="display_player1CountryImg"
@@ -397,105 +469,36 @@
               </div>
             </div>
 
-            <div class="timer">
-              <h2>TIMER</h2>
-              <span class="display_timer">30</span>
+            <div class="actions row">
+              <button
+                class="restart-btn modal-close-button unstyled"
+                data-modalId="gameOver"
+              >
+                Restart
+              </button>
+              <button
+                class="exit-btn modal-close-button unstyled"
+                data-modalId="gameOver"
+              >
+                Exit
+              </button>
             </div>
           </div>
         </div>
-        <canvas id="canvas"></canvas>
-      </div>
 
-      <div class="modal-overlay hidden" id="pauseMenu">
-        <div class="modal">
-          <h2 class="modal-title">Paused</h2>
-
-          <div class="actions">
-            <button
-              class="resume-game modal-close-button unstyled"
-              data-modalId="pauseMenu"
-            >
-              Resume
-            </button>
-            <button
-              class="restart-btn modal-close-button unstyled"
-              data-modalId="pauseMenu"
-            >
-              Restart
-            </button>
-            <button
-              class="exit-btn modal-close-button unstyled"
-              data-modalId="pauseMenu"
-            >
-              Exit
-            </button>
-          </div>
+        <button
+          class="modal-open-button hidden"
+          id="openCountdown"
+          data-modalId="countdown"
+        ></button>
+        <button
+          class="modal-close-button hidden"
+          id="closeCountdown"
+          data-modalId="countdown"
+        ></button>
+        <div class="modal-overlay hidden" id="countdown">
+          <span id="countdownLabel">3</span>
         </div>
-      </div>
-
-      <button
-        class="modal-open-button hidden"
-        id="openGameOver"
-        data-modalId="gameOver"
-      ></button>
-      <div class="modal-overlay hidden" id="gameOver">
-        <div class="modal">
-          <h2 class="modal-title">Game Over</h2>
-          <div id="gameResult">
-            <div class="country">
-              <img
-                class="display_player1CountryImg"
-                src="./assets/Flag/Brazil.png"
-                alt=""
-              />
-              <div class="score">
-                <h2 class="display_player1Country">country_name</h2>
-                <h2 class="display_player1Score">0</h2>
-              </div>
-            </div>
-            <h2 class="versus">VS</h2>
-            <div class="country">
-              <div class="score">
-                <h2 class="display_player2Country">country_name</h2>
-                <h2 class="display_player2Score">0</h2>
-              </div>
-              <img
-                class="display_player2CountryImg"
-                src="./assets/Flag/Brazil.png"
-                alt=""
-              />
-            </div>
-          </div>
-
-          <div class="actions row">
-            <button
-              class="restart-btn modal-close-button unstyled"
-              data-modalId="gameOver"
-            >
-              Restart
-            </button>
-            <button
-              class="exit-btn modal-close-button unstyled"
-              data-modalId="gameOver"
-            >
-              Exit
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <button
-        class="modal-open-button hidden"
-        id="openCountdown"
-        data-modalId="countdown"
-      ></button>
-      <button
-        class="modal-close-button hidden"
-        id="closeCountdown"
-        data-modalId="countdown"
-      ></button>
-      <div class="modal-overlay hidden" id="countdown">
-        <span id="countdownLabel">3</span>
       </div>
     </div>
 

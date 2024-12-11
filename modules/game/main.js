@@ -420,6 +420,8 @@ function init() {
 
   doCountdown();
   loop();
+
+  document.getElementById("game").requestFullscreen();
 }
 
 onPageChange((page) => {
