@@ -163,15 +163,18 @@ function handleCollisions(deltaTime) {
   });
 }
 
+let lastItem = 0;
 function handleItemSpawner(deltaTime) {
   lastItemSpawned += deltaTime;
 
   if (lastItemSpawned >= ITEM_SPAWN_INTERVAL) {
     lastItemSpawned = 0;
 
-    const itemType = ["big_ball", "small_ball", "freeze_ball"][
-      getRandomInt(0, 3)
-    ];
+    const itemType = ["big_ball", "small_ball", "freeze_ball"][lastItem];
+    lastItem += 1;
+    if (lastItem > 2) {
+      lastItem = 0;
+    }
     items.push(new Item(itemType));
   }
 }
@@ -377,7 +380,6 @@ function init() {
   loop();
 }
 
-init();
 onPageChange((page) => {
   if (page === "game") {
     init();
