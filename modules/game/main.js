@@ -136,7 +136,7 @@ function handleCollisions(deltaTime) {
     const contact = Collision.getClosestAABBCircle(goal1, ball).sub(goal1.pos);
 
     if (contact.x < goal1.width - 15 && contact.y > ball.radius) {
-      doGoalie(1);
+      doGoalie(2);
     } else if (
       contact.x > goal1.width - ball.radius &&
       contact.y <= ball.radius
@@ -157,7 +157,7 @@ function handleCollisions(deltaTime) {
     const contact = Collision.getClosestAABBCircle(goal2, ball).sub(goal2.pos);
 
     if (contact.x > 15 && contact.y > ball.radius) {
-      doGoalie(2);
+      doGoalie(1);
     } else if (contact.x < ball.radius && contact.y <= ball.radius) {
       if (ball.pos.x > goal2.pos.x) {
         ball.pos.x = goal2.pos.x;
