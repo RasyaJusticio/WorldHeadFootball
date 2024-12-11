@@ -30,7 +30,7 @@ class Ball {
       this.vel.y = -BALL_TERMINAL;
     }
 
-    this.angleDegrees += this.vel.x / 14;
+    this.angleDegrees += this.vel.x / (this.radius * 0.5);
 
     this.pos = this.pos.add(this.vel.mult(deltaTime));
 
@@ -66,6 +66,8 @@ class Ball {
     // context.stroke();
     // context.closePath();
 
+    context.save();
+
     if (currentBallEffect === "freeze_ball") {
       context.filter = "brightness(0.5)";
     }
@@ -82,5 +84,19 @@ class Ball {
       this.radius * 2,
       this.radius * 2
     );
+
+    context.restore();
+
+    if (currentBallEffect === "freeze_ball") {
+      context.textAlign = "center";
+      context.textBaseline = "middle";
+      context.font = "1rem Helvetica";
+      context.fillStyle = "white";
+      context.fillText(
+        Math.floor(effectTimer).toString(),
+        canvasCoord.x,
+        canvasCoord.y
+      );
+    }
   }
 }

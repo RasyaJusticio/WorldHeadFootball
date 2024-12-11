@@ -1,5 +1,6 @@
 let isPaused = false;
 let isCountingDown = false;
+let isGoalScored = false;
 let countDown = 3;
 
 let timer = 30;

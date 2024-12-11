@@ -62,6 +62,26 @@ class Player {
     getAnim(this.country, "Kick", 8, this.sprites["Kick"]);
   }
 
+  reset() {
+    this.pos = new Vector(
+      FIELD_WIDTH / 2 + this.width,
+      FIELD_HEIGHT - this.height
+    );
+    this.vel = new Vector(0, 0);
+
+    if (this.owner === 1) {
+      this.pos.x -= this.width * 3;
+    }
+
+    this.state = "Idle";
+
+    this.animTimestamp = 0;
+    this.animIteration = 0;
+
+    this.canKick = false;
+    this.isKicking = false;
+  }
+
   moveForward(state) {
     if (this.owner === 1) {
       this.requestMoveRight = state;

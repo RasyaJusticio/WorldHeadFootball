@@ -46,6 +46,21 @@ function exitGame() {
   navigate("lobby");
 }
 
+function doGoalie(player) {
+  isGoalScored = true;
+  setTimeout(() => {
+    ball.reset();
+
+    player1.reset();
+    player2.reset();
+
+    score[player - 1]++;
+    rerenderPlayerScores();
+
+    isGoalScored = false;
+  }, 1000);
+}
+
 function getRandomInt(min, max) {
   const minCeiled = Math.ceil(min);
   const maxFloored = Math.floor(max);
@@ -54,10 +69,18 @@ function getRandomInt(min, max) {
 
 function handleItemEffect(itemType) {
   if (currentBallEffect !== itemType) {
-    effectTimer = 5;
+    if (itemType === "freeze_ball") {
+      effectTimer = 3;
+    } else {
+      effectTimer = 5;
+    }
     currentBallEffect = itemType;
   } else {
-    effectTimer += 5;
+    if (itemType === "freeze_ball") {
+      effectTimer += 3;
+    } else {
+      effectTimer += 5;
+    }
   }
 
   if (itemType === "big_ball") {
@@ -112,10 +135,8 @@ function handleCollisions(deltaTime) {
   if (Collision.checkCollAABBCircle(goal1, ball)) {
     const contact = Collision.getClosestAABBCircle(goal1, ball).sub(goal1.pos);
 
-    if (contact.x < goal1.width - ball.radius && contact.y > ball.radius) {
-      ball.reset();
-      score[1]++;
-      rerenderPlayerScores();
+    if (contact.x < goal1.width - 15 && contact.y > ball.radius) {
+      doGoalie(1);
     } else if (
       contact.x > goal1.width - ball.radius &&
       contact.y <= ball.radius
@@ -135,10 +156,8 @@ function handleCollisions(deltaTime) {
   if (Collision.checkCollAABBCircle(goal2, ball)) {
     const contact = Collision.getClosestAABBCircle(goal2, ball).sub(goal2.pos);
 
-    if (contact.x > ball.radius && contact.y > ball.radius) {
-      ball.reset();
-      score[0]++;
-      rerenderPlayerScores();
+    if (contact.x > 15 && contact.y > ball.radius) {
+      doGoalie(2);
     } else if (contact.x < ball.radius && contact.y <= ball.radius) {
       if (ball.pos.x > goal2.pos.x) {
         ball.pos.x = goal2.pos.x;
@@ -170,7 +189,7 @@ function handleItemSpawner(deltaTime) {
   if (lastItemSpawned >= ITEM_SPAWN_INTERVAL) {
     lastItemSpawned = 0;
 
-    const itemType = ["big_ball", "small_ball", "freeze_ball"][lastItem];
+    const itemType = ["big_ball", "big_ball", "big_ball"][lastItem];
     lastItem += 1;
     if (lastItem > 2) {
       lastItem = 0;
@@ -181,7 +200,7 @@ function handleItemSpawner(deltaTime) {
 
 function handleItemEffectTimer(deltaTime) {
   if (effectTimer > 0) {
-    effectTimer -= deltaTime;
+    // effectTimer -= deltaTime;
   }
 
   if (effectTimer <= 0) {
@@ -351,7 +370,7 @@ function loop(timestamp) {
   lastTimestamp = timestamp;
 
   draw();
-  if (!isPaused && !isCountingDown) {
+  if (!isPaused && !isCountingDown && !isGoalScored) {
     update(deltaTime);
   }
 
