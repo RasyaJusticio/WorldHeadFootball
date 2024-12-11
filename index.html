@@ -335,77 +335,75 @@
     </div>
 
     <div class="page center hidden" id="game">
-      <div class="wrapper">
-        <div id="container">
-          <div id="ui">
-            <button
-              class="pause-game modal-open-button unstyled"
-              id="openPauseMenu"
-              data-modalId="pauseMenu"
+      <div id="container">
+        <div id="ui">
+          <button
+            class="pause-game modal-open-button unstyled"
+            id="openPauseMenu"
+            data-modalId="pauseMenu"
+          >
+            <svg
+              width="28px"
+              height="28px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                width="28px"
-                height="28px"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4 18L20 18"
-                  stroke="#FFFFFF"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                />
-                <path
-                  d="M4 12L20 12"
-                  stroke="#FFFFFF"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                />
-                <path
-                  d="M4 6L20 6"
-                  stroke="#FFFFFF"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                />
-              </svg>
-            </button>
+              <path
+                d="M4 18L20 18"
+                stroke="#FFFFFF"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M4 12L20 12"
+                stroke="#FFFFFF"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+              <path
+                d="M4 6L20 6"
+                stroke="#FFFFFF"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+          </button>
 
-            <div id="scoreboard">
-              <div class="scores">
-                <div class="country">
-                  <img
-                    class="display_player1CountryImg"
-                    src="./assets/Flag/Brazil.png"
-                    alt=""
-                  />
-                  <div class="score">
-                    <h2 class="display_player1Country">country_name</h2>
-                    <h2 class="display_player1Score">0</h2>
-                  </div>
-                </div>
-                <h2 class="versus">VS</h2>
-                <div class="country">
-                  <div class="score">
-                    <h2 class="display_player2Country">country_name</h2>
-                    <h2 class="display_player2Score">0</h2>
-                  </div>
-                  <img
-                    class="display_player2CountryImg"
-                    src="./assets/Flag/Brazil.png"
-                    alt=""
-                  />
+          <div id="scoreboard">
+            <div class="scores">
+              <div class="country">
+                <img
+                  class="display_player1CountryImg"
+                  src="./assets/Flag/Brazil.png"
+                  alt=""
+                />
+                <div class="score">
+                  <h2 class="display_player1Country">country_name</h2>
+                  <h2 class="display_player1Score">0</h2>
                 </div>
               </div>
-
-              <div class="timer">
-                <h2>TIMER</h2>
-                <span class="display_timer">30</span>
+              <h2 class="versus">VS</h2>
+              <div class="country">
+                <div class="score">
+                  <h2 class="display_player2Country">country_name</h2>
+                  <h2 class="display_player2Score">0</h2>
+                </div>
+                <img
+                  class="display_player2CountryImg"
+                  src="./assets/Flag/Brazil.png"
+                  alt=""
+                />
               </div>
             </div>
+
+            <div class="timer">
+              <h2>TIMER</h2>
+              <span class="display_timer">30</span>
+            </div>
           </div>
-          <canvas id="canvas"></canvas>
         </div>
+        <canvas id="canvas"></canvas>
 
         <div class="modal-overlay hidden" id="pauseMenu">
           <div class="modal">

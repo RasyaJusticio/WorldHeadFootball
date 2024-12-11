@@ -421,7 +421,7 @@ function init() {
   doCountdown();
   loop();
 
-  document.getElementById("game").requestFullscreen();
+  document.getElementById("container").requestFullscreen();
 }
 
 onPageChange((page) => {

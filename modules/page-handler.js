@@ -28,7 +28,7 @@ function onPageChange(callback) {
 }
 
 onPageChange((page) => {
-  if (page === "lobby") {
+  if (page === "lobby" && document.fullscreenElement) {
     document.exitFullscreen();
   }
 });

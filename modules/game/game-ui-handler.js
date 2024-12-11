@@ -132,6 +132,6 @@ goFullScreenBtn.addEventListener("click", () => {
   if (document.fullscreenElement) {
     document.exitFullscreen();
   } else {
-    document.getElementById("game").requestFullscreen();
+    document.getElementById("container").requestFullscreen();
   }
 });
