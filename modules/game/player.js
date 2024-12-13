@@ -32,6 +32,8 @@ class Player {
     this.requestJump = false;
     this.requestMoveLeft = false;
     this.requestMoveRight = false;
+    this.currentMoveInput = "NONE"; // "NONE" | "LEFT" | "RIGHT"
+    this.lastMoveInput = "NONE";
 
     this.state = "Idle";
 
@@ -82,19 +84,68 @@ class Player {
     this.isKicking = false;
   }
 
+  // Direction: "LEFT" | "RIGHT"
+  registerMove(direction) {
+    if (
+      this.currentMoveInput !== "NONE" &&
+      this.currentMoveInput !== direction
+    ) {
+      this.lastMoveInput = this.currentMoveInput;
+    }
+    this.currentMoveInput = direction;
+  }
+
+  unregisterMove(direction) {
+    if (
+      this.currentMoveInput !== "NONE" &&
+      this.currentMoveInput === direction
+    ) {
+      this.currentMoveInput = this.lastMoveInput;
+      this.lastMoveInput = "NONE";
+    }
+
+    if (this.lastMoveInput !== "NONE" && this.lastMoveInput === direction) {
+      this.lastMoveInput = "NONE";
+    }
+  }
+
   moveForward(state) {
     if (this.owner === 1) {
       this.requestMoveRight = state;
+
+      if (state) {
+        this.registerMove("RIGHT");
+      } else {
+        this.unregisterMove("RIGHT");
+      }
     } else if (this.owner === 2) {
       this.requestMoveLeft = state;
+
+      if (state) {
+        this.registerMove("LEFT");
+      } else {
+        this.unregisterMove("LEFT");
+      }
     }
   }
 
   moveBackward(state) {
     if (this.owner === 1) {
       this.requestMoveLeft = state;
+
+      if (state) {
+        this.registerMove("LEFT");
+      } else {
+        this.unregisterMove("LEFT");
+      }
     } else if (this.owner === 2) {
       this.requestMoveRight = state;
+
+      if (state) {
+        this.registerMove("RIGHT");
+      } else {
+        this.unregisterMove("RIGHT");
+      }
     }
   }
 
@@ -236,9 +287,9 @@ class Player {
 
   // Player Controller
   handleMoving() {
-    if (this.requestMoveRight) {
+    if (this.currentMoveInput === "RIGHT") {
       this.vel.x = WALK_SPEED;
-    } else if (this.requestMoveLeft) {
+    } else if (this.currentMoveInput === "LEFT") {
       this.vel.x = -WALK_SPEED;
     } else {
       this.vel.x = 0;
