@@ -39,19 +39,11 @@ function cleanupGame() {
 }
 
 function restartGame() {
-  if (!isPaused && !isGameOver) {
-    return;
-  }
-
   cleanupGame();
   doCountdown();
 }
 
 function exitGame() {
-  if (!isPaused && !isGameOver) {
-    return;
-  }
-
   cleanupGame();
   navigate("lobby");
 }

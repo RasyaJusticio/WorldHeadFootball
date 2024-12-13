@@ -34,5 +34,6 @@ modalClosers.forEach((button) => {
 
   button.addEventListener("click", () => {
     modal.classList.add("hidden");
+    document.activeElement.blur();
   });
 });
