@@ -50,6 +50,12 @@ function exitGame() {
 
 function doGoalie(player) {
   isGoalScored = true;
+  if (player === 1) {
+    player1Goalie();
+  } else if (player === 2) {
+    player2Goalie();
+  }
+
   setTimeout(() => {
     ball.reset();
 
@@ -59,6 +65,7 @@ function doGoalie(player) {
     score[player - 1]++;
     rerenderPlayerScores();
 
+    closeAllGoalieMessage();
     isGoalScored = false;
   }, 1000);
 }

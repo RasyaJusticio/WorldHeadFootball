@@ -83,6 +83,9 @@ const displayPlr2CountryImg = document.querySelectorAll(
   ".display_player2CountryImg"
 );
 
+const player1GoalLabel = document.getElementById("player1GoalLabel");
+const player2GoalLabel = document.getElementById("player2GoalLabel");
+
 function rerenderPlayerCountries() {
   displayPlr1Country.forEach((countryElem) => {
     countryElem.textContent = submittedData.player1Country;
@@ -96,6 +99,8 @@ function rerenderPlayerCountries() {
   displayPlr2CountryImg.forEach((countryImgElem) => {
     countryImgElem.src = `./assets/Flag/${submittedData.player2Country}.png`;
   });
+  player1GoalLabel.textContent = submittedData.player1Country;
+  player2GoalLabel.textContent = submittedData.player2Country;
 }
 
 // Scores & Timer
@@ -123,6 +128,25 @@ const openGameOverBtn = document.getElementById("openGameOver");
 
 function openGameOver() {
   openGameOverBtn.click();
+}
+
+// Goal Text
+const openPlayer1GoalBtn = document.getElementById("openPlayer1Goal");
+const openPlayer2GoalBtn = document.getElementById("openPlayer2Goal");
+const closePlayer1GoalBtn = document.getElementById("closePlayer1Goal");
+const closePlayer2GoalBtn = document.getElementById("closePlayer2Goal");
+
+function player1Goalie() {
+  openPlayer1GoalBtn.click();
+}
+
+function player2Goalie() {
+  openPlayer2GoalBtn.click();
+}
+
+function closeAllGoalieMessage() {
+  closePlayer1GoalBtn.click();
+  closePlayer2GoalBtn.click();
 }
 
 // Fullscreen
